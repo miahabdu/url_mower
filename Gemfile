@@ -21,12 +21,9 @@ gem 'twitter-bootstrap-rails', git: 'git://github.com/seyhunak/twitter-bootstrap
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
-gem 'jquery-ui-rails'
-gem 'jquery-ui-themes'
 gem 'pickadate-rails'
 gem 'morrisjs-rails'
 gem 'raphael-rails'
-gem 'fullcalendar-rails'
 gem 'font-awesome-rails'
 gem 'angularjs-rails'
 gem 'angular-rails-templates'

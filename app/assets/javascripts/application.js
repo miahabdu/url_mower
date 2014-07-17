@@ -12,12 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery.purr
-//= require jquery.ui.datepicker
-//= require jquery.ui.tooltip
-//= require jquery.ui.effect.all
-//= require jquery.ghostFormat
 //= require pickadate/picker
 //= require pickadate/picker.date
 //= require twitter/bootstrap
+//= require underscore
+//= require angular
+//= require angular-resource
+//= require angular-rails-templates
 //= require_tree .
