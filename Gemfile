@@ -45,7 +45,10 @@ gem 'colorize'
 gem 'will_paginate'
 gem 'carrierwave'
 gem 'mini_magick'
-# gem 'fog'
+gem 'imgkit'
+gem "fog", "~> 1.3.1"
+gem 'mechanize'
+gem 'sidekiq'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -72,7 +75,7 @@ gem 'whenever', require: false
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Use unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn'
 gem 'rails_12factor'
 
 # Use Capistrano for deployment

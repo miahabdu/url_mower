@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Original url:
+  = @link.original_url
+%p
+  %b Slug:
+  = @link.slug
+%p
+  %b Clicks:
+  = @link.clicks
+%p
+  %b Screenshot:
+  = @link.screenshot
+%p
+  %b Title:
+  = @link.title
+
+= link_to 'Edit', edit_link_path(@link)
+\|
+= link_to 'Back', links_path

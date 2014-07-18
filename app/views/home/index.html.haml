@@ -1,5 +1,26 @@
-.mower{:"ng-controller" => 'UrlMowerCtrl'}
-  .text-center
-    %h1 {{product.name}}
-    %h2 {{product.price | currency}}
-    %p {{product.description}}
+.container-fluid.mower{:"ng-controller" => 'UrlMowerCtrl'}
+  .col-xs-12
+    .row
+      .col-xs-6.col-xs-offset-3
+        %form.form-search{name: "url_mower_form"}
+          .input-group
+            %input.form-control{:"ng-model" => "link_url", placeholder: "Enter link here to shorten it...", title: "url_link"}
+            %span.input-group-btn
+              %input.btn.btn-success{:type => 'submit', :value => 'Mow it!', :"ng-click" => 'createUrl()'}
+    .row
+      .created_url{:"ng-if" => "created_url"}
+        .text-center
+          %h2 Your mowed link: 
+          %span
+            %a{:"ng-href" => "{{created_url}}"} {{created_url}}
+    
+    .row
+      .top_links{:"ng-if" => "top_links.length"}
+        %h1.page-header.text-center Trending Links
+        .col-xs-3{:"ng-repeat" => "link in top_links | orderBy: '-clicks'"}
+          .thumbnail
+            .text-center
+              %h4 {{link.title | limitTo:letterLimit}}
+              %a{:"ng-href" => "{{link.display_slug}}"} {{link.display_slug}}
+              %h3 {{link.clicks}} clicks
+              %a{:"ng-href" => "{{link.original_url}}"} {{link.original_url}}
