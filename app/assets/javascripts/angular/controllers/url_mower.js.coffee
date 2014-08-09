@@ -1,4 +1,4 @@
-urlMowerController = angular.module('urlMowerController', [])
+urlMowerController = angular.module('urlMowerController', ['ngAnimate'])
 
 urlMowerController.controller 'UrlMowerCtrl', [
   "$scope"
@@ -13,6 +13,7 @@ urlMowerController.controller 'UrlMowerCtrl', [
       $scope.top_links = data.data
 
     $scope.createUrl = ->
+      $scope.created_url = null
       $http.post("/links.json?link[original_url]=" + $scope.link_url).then (data) ->
         console.log(data.data)
         link = data.data
