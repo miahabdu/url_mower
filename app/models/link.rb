@@ -3,7 +3,11 @@ class Link < ActiveRecord::Base
   mount_uploader :screenshot, ScreenshotUploader
 
   def display_slug
-    'http://localhost:3000/' + self.slug
+    if Rails.env.production?
+      'http://urlmower.com/' + self.slug
+    else
+      'http://localhost:3000/' + self.slug
+    end
   end
   
   def generate_slug
