@@ -40,7 +40,7 @@
   width: 300px;
   margin-left: auto;
   margin-right: auto;
-  padding: 15px;
+  padding: 0 15px 25px 15px;
   border: 1px dashed;
   border-radius: 5px;
 }
@@ -65,4 +65,12 @@
   float: left;
   padding-top: 15%;
   padding-left: 28%;
+}
+
+.error_text{
+  color: #d9534f;
+  font-weight: bold;
+  float: left;
+  padding-left: 2%;
+  position: absolute;
 }

@@ -12,14 +12,23 @@ urlMowerController.controller 'UrlMowerCtrl', [
     $http.get("/links.json").then (data) ->
       $scope.top_links = data.data
 
+    $scope.submitted = false
+
+    # $scope.clearCreatedUrl = ->
+    #   $scope.created_url = null
+
     $scope.createUrl = ->
       $scope.created_url = null
-      $http.post("/links.json?link[original_url]=" + $scope.link_url).then (data) ->
-        console.log(data.data)
-        link = data.data
-        $scope.created_url = link.display_slug
-        addToTopLinks(link)
-          
+      if $scope.urlMowerForm.$valid
+        $http.post("/links.json?link[original_url]=" + $scope.link_url).then (data) ->
+          console.log(data.data)
+          link = data.data
+          $scope.created_url = link.display_slug
+          addToTopLinks(link)
+      else
+        $scope.submitted = true
+        # $scope.created_url = null
+      console.log $scope.created_url
     
     addToTopLinks = (link) ->
       addToArray = true
