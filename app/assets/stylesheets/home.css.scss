@@ -46,12 +46,22 @@
 }
 
 .grass_img{
-  height: 200px;
   background-image: image-url("grass.jpeg");
-  background-size: 100%;
   background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
+.header_container{
+  padding-top: 20%
+}
+
+.center {
+  float: none; 
+  margin: 0 auto;
+}
 .header {
   font-weight: bold;
   font-size: -webkit-xxx-large;
@@ -62,12 +72,13 @@
   color: transparent;
   text-shadow: rgba(255,255,255,0.3) 1px 1px 1px;
   line-height: 40px;
-  float: left;
-  padding-top: 15%;
-  padding-left: 28%;
+  float: none;
+  margin: 0 auto;
+  text-align: center;
+  padding-bottom: 2%;
 }
 
-.error_text{
+.error-container{
   color: #d9534f;
   font-weight: bold;
   float: left;

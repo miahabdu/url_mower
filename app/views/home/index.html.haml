@@ -1,21 +1,22 @@
 .container-fluid.mower{:"ng-controller" => 'UrlMowerCtrl'}
   .col-xs-12
-    .row{style: 'margin-top:5%;'}
-      .col-xs-6.col-xs-offset-3
-        .header
-          URLmower
-        .grass_img
-        %form.form-search{name: "urlMowerForm", :"novalidate" => true, style: 'margin-top: -25px;', :"ng-submit" => 'createUrl()'}
-          .input-group
-            %input.form-control{:"ng-model" => "link_url", placeholder: "Enter link here to shorten it...", title: "url_link", required: true, type: 'url', name: "link_url"}
-            %span.input-group-btn
-              %input.btn.btn-success{:type => 'submit', :value => 'Mow it!'}
+    .row{style: 'margin-top:10%;'}
+      .col-md-6.center
+        .header_container.grass_img
+          .header
+            URLmower
+          %form.form-search{name: "urlMowerForm", :"novalidate" => true, :"ng-submit" => 'createUrl()'}
+            .input-group
+              %input.form-control{:"ng-model" => "link_url", placeholder: "Enter link here to shorten it...", title: "url_link", required: true, type: 'url', name: "link_url"}
+              %span.input-group-btn
+                %input.btn.btn-success{:type => 'submit', :value => 'Mow it!'}
+            .error-container{:"ng-show" => "urlMowerForm.link_url.$invalid && submitted"}
+              %small.error_text{:"ng-show" => "urlMowerForm.link_url.$error.required"}
+                a URL is required.
+              %small.error_text{:"ng-show" => "urlMowerForm.link_url.$error.url"}
+                must begin with http://
+              
             
-          .error-container{:"ng-show" => "urlMowerForm.link_url.$invalid && submitted"}
-            %small.error_text{:"ng-show" => "urlMowerForm.link_url.$error.required"}
-              a URL is required.
-            %small.error_text{:"ng-show" => "urlMowerForm.link_url.$error.url"}
-              must begin with http://
               
     .row
       .created_url.url_box{:"ng-if" => "created_url", :class => 'animate'}
@@ -34,6 +35,6 @@
     /           %a{:"ng-href" => "{{link.display_slug}}"} {{link.display_slug}}
     /           %h3 {{link.clicks}} clicks
     /           %a{:"ng-href" => "{{link.original_url}}"} {{link.original_url}}
-%footer
-  .text-muted.credit{style: "margin: 0.5% 0 0 0.5%;"}
-    %small &copy; 2014 Abdul Miah
+  %footer
+    .text-muted.credit{style: "margin: 0.5% 0 0 0.5%;"}
+      %small &copy; 2014 Abdul Miah
